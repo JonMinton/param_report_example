@@ -31,6 +31,10 @@ data <- read_csv("input_data/input.csv")
 
 labels <- data$label
 
+
+# Here's some insightful comment
+
+
 render_report <- function(label){
   rmarkdown::render("report_template.Rmd",
                     output_file = paste0("markdown_reports/", label, ".html"),
