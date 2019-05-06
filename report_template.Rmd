@@ -1,0 +1,34 @@
+---
+params:
+  place_name:
+title: "`r paste('Report for place', params$place_name)`"
+author: "Jon Minton"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+output: html_document
+---
+
+
+# Intro
+
+This is some kind of text that's really informative.
+
+```{r, echo = FALSE}
+library(tidyverse)
+
+```
+
+```{r, echo = FALSE}
+data %>% 
+  ggplot(aes(x = xvar, y = yvar)) +
+  geom_point() +
+  geom_point(
+    aes(x = xvar, y = yvar),
+    inherit.aes = FALSE,
+    data = data %>% 
+      filter(label == params$place_name),
+    size = 2, color = "red"
+  )
+
+```
+
+`r 1+1`
